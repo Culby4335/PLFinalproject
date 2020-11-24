@@ -1,3 +1,6 @@
+with data;
+use data;
+
 package body InsertionSort is 
    function InsertionSortAlg (Item : in out Collection_Type) return Collection_Type is
       firstVal : Natural := Item'First;

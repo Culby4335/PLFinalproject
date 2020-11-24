@@ -1,3 +1,6 @@
+with data;
+use data; 
+
 generic
    type Element_Type is private;
    type Index_Type is (<>);
