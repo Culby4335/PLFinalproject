@@ -1,7 +1,7 @@
 with data;
 use data;
 
-package body Mergesort is
+package body sortAlg is
  
    -----------
    -- Merge --
@@ -9,19 +9,19 @@ package body Mergesort is
  
    function Merge(Left, Right : Collection_Type) return Collection_Type is
       Result : Collection_Type(Left'First..Right'Last);
-      lftInd : Index_Type := Left'First;
-      rgtInd : Index_Type := Right'First;
-      whereToPut : Index_Type := Result'First;
+      lftInd : Natural := Left'First;
+      rgtInd : Natural := Right'First;
+      whereToPut: Natural := Result'First;
    begin
       while lftInd <= Left'Last and rgtInd <= Right'Last loop
          if Left(lftInd) <= Right(rgtInd) then
             Result(whereToPut) := Left(lftInd);
-            lftInd := Index_Type'Succ(lftInd); -- increment lftInd
+            lftInd := Natural'Succ(lftInd); -- increment lftInd
          else
             Result(whereToPut) := Right(rgtInd);
-            rgtInd := Index_Type'Succ(rgtInd); -- increment rgtInd
+            rgtInd := Natural'Succ(rgtInd); -- increment rgtInd
          end if;
-         whereToPut := Index_Type'Succ(whereToPut); -- increment whereToPut
+         whereToPut := Natural'Succ(whereToPut); -- increment whereToPut
       end loop;
       if lftInd <= Left'Last then
          Result(whereToPut..Result'Last) := Left(lftInd..Left'Last);
@@ -32,16 +32,16 @@ package body Mergesort is
       return Result;
    end Merge;
    
-   function Sort (Item : Collection_Type) return Collection_Type is
+   function doSort (Item : Collection_Type) return Collection_Type is
       Result : Collection_Type(Item'range);
-      Middle : Index_Type;
+      Middle : Natural;
    begin
       if Item'Length <= 1 then
          return Item;
       else
-         Middle := Index_Type'Val((Item'Length / 2) + Index_Type'Pos(Item'First));
+         Middle := Natural'Val((Item'Length / 2) + Natural'Pos(Item'First));
          declare
-            Left : Collection_Type(Item'First..Index_Type'Pred(Middle));
+            Left : Collection_Type(Item'First..Natural'Pred(Middle));
             Right : Collection_Type(Middle..Item'Last);
          begin
             for I in Left'range loop
@@ -50,11 +50,11 @@ package body Mergesort is
             for I in Right'range loop
                Right(I) := Item(I);
             end loop;
-            Left := Sort(Left);
-            Right := Sort(Right);
+            Left := doSort(Left);
+            Right := doSort(Right);
             Result := Merge(Left, Right);
          end;
          return Result;
       end if;
-   end Sort;
-end Mergesort;
+   end doSort;
+end sortAlg;
