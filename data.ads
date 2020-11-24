@@ -1,3 +1,4 @@
+--Written by Michael Janovy
 package data is
    type Collection_Type is array(Natural range <>) of Integer;
       A : data.Collection_Type := (378,408,317,200,94,126,148,8,383,406,350,407,216,

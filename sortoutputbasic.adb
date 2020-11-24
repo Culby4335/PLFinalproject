@@ -1,3 +1,4 @@
+--Written by Michael Janovy
 with Ada.Text_Io; use Ada.Text_Io;
 with data;
 use data;
