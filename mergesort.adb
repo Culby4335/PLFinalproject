@@ -1,3 +1,6 @@
+with data;
+use data;
+
 package body Mergesort is
  
    -----------
