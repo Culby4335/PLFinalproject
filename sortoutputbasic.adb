@@ -2,7 +2,7 @@ with Ada.Text_Io; use Ada.Text_Io;
 with data;
 use data;
 
-package body sortOutputBasic is
+package body sortOutput is
    procedure doOutput(Item : in out Collection_Type) is
    begin
       For I in Item'Range loop
@@ -12,4 +12,4 @@ package body sortOutputBasic is
    end doOutput;
    
 
-end sortOutputBasic;
+end sortOutput;
