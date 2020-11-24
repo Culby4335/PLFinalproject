@@ -6,25 +6,25 @@ package body Mergesort is
  
    function Merge(Left, Right : Collection_Type) return Collection_Type is
       Result : Collection_Type(Left'First..Right'Last);
-      Left_Index : Index_Type := Left'First;
-      Right_Index : Index_Type := Right'First;
-      Result_Index : Index_Type := Result'First;
+      lftInd : Index_Type := Left'First;
+      rgtInd : Index_Type := Right'First;
+      whereToPut : Index_Type := Result'First;
    begin
-      while Left_Index <= Left'Last and Right_Index <= Right'Last loop
-         if Left(Left_Index) <= Right(Right_Index) then
-            Result(Result_Index) := Left(Left_Index);
-            Left_Index := Index_Type'Succ(Left_Index); -- increment Left_Index
+      while lftInd <= Left'Last and rgtInd <= Right'Last loop
+         if Left(lftInd) <= Right(rgtInd) then
+            Result(whereToPut) := Left(lftInd);
+            lftInd := Index_Type'Succ(lftInd); -- increment lftInd
          else
-            Result(Result_Index) := Right(Right_Index);
-            Right_Index := Index_Type'Succ(Right_Index); -- increment Right_Index
+            Result(whereToPut) := Right(rgtInd);
+            rgtInd := Index_Type'Succ(rgtInd); -- increment rgtInd
          end if;
-         Result_Index := Index_Type'Succ(Result_Index); -- increment Result_Index
+         whereToPut := Index_Type'Succ(whereToPut); -- increment whereToPut
       end loop;
-      if Left_Index <= Left'Last then
-         Result(Result_Index..Result'Last) := Left(Left_Index..Left'Last);
+      if lftInd <= Left'Last then
+         Result(whereToPut..Result'Last) := Left(lftInd..Left'Last);
       end if;
-      if Right_Index <= Right'Last then
-         Result(Result_Index..Result'Last) := Right(Right_Index..Right'Last);
+      if rgtInd <= Right'Last then
+         Result(whereToPut..Result'Last) := Right(rgtInd..Right'Last);
       end if;
       return Result;
    end Merge;
