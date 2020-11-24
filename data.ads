@@ -1,3 +1,4 @@
+--Written by Michael Janovy
 package data is
    type Collection_Type is array (Natural range <>) of Integer;
    A : data.Collection_Type :=
