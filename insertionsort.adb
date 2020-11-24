@@ -1,8 +1,9 @@
+--Written by Zack Culberson
 with data;
 use data;
 
-package body InsertionSort is 
-   function InsertionSortAlg (Item : in out Collection_Type) return Collection_Type is
+package body sortAlg is 
+   function doSort (Item : in out Collection_Type) return Collection_Type is
       firstVal : Natural := Item'First;
       lastVal  : Natural := Item'Last;
       Value : Integer;
@@ -18,6 +19,6 @@ package body InsertionSort is
          Item(J + 1) := Value;
       end loop;
       return Item;
-   end InsertionSortAlg;
+   end doSort;
    
-end InsertionSort;
+end sortAlg;

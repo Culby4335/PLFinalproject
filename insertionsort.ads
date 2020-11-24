@@ -1,6 +1,7 @@
+--Written by Zack Culberson
 with data;
 use data;
 
-package InsertionSort is
-   function InsertionSortAlg(Item : in out Collection_Type)return Collection_Type;
-end InsertionSort;
+package sortAlg is
+   function doSort(Item : in out Collection_Type)return Collection_Type;
+end sortAlg;

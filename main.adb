@@ -1,11 +1,10 @@
 with Ada.Text_Io; use Ada.Text_Io;
---with Mergesort,
-with InsertionSort;
+with sortAlg;
 with sortOutput;
 with data;
 
 procedure Main is
-   use InsertionSort;
+   use sortAlg;
    use sortOutput;
    use data;
 
@@ -28,6 +27,6 @@ begin
    Put_Line("Insertion Sort:");
    doOutput(A);
    Put_Line("Sorted");
-   A := InsertionSortAlg(A);
+   A := doSort(A);
    doOutput(A);
 end Main;

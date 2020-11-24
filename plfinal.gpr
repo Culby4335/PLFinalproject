@@ -1,0 +1,17 @@
+project Plfinal is
+   package Naming is
+      for Spec ("sortAlg")
+      use "mergeSort.ads";
+      for Body ("sortAlg")
+      use "mergeSort.adb";
+      for Spec ("sortoutput")
+      use "sortoutputbasic.ads";
+      for Body ("sortoutput")
+      use "sortoutputbasic.adb";
+   end Naming;
+
+
+    for Source_Dirs use ("src");
+    for Object_Dir use "obj";
+    for Main use ("main.adb");
+end Plfinal;
